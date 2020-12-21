@@ -1,3 +1,8 @@
+var gamestate ="onsling"
+
+
+
+
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
@@ -69,16 +74,20 @@ function draw(){
 }
 
 function mouseDragged(){
+    if(gamestate!="launched"){
+
+    
     Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
-}
+}}
 
 
 function mouseReleased(){
     slingshot.fly();
+    gamestate="launched"
 }
 
 function keyPressed(){
     if(keyCode === 32){
-        slingshot.attach(bird.body);
+       // slingshot.attach(bird.body);
     }
 }
